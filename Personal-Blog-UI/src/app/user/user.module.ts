@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CommentComponent } from './comment/comment.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { CommentComponent } from './comment/comment.component';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    CommentComponent
+    CommentComponent,
+    EditProfileComponent
   ]
 })
 export class UserModule { }
