@@ -5,12 +5,14 @@ import { LoginComponent } from '../user/login/login.component';
 import { RegisterComponent } from '../user/register/register.component';
 import { CommentComponent } from '../user/comment/comment.component';
 import { EditProfileComponent } from '../user/edit-profile/edit-profile.component';
+import { ReadingPostComponent } from './reading-post/reading-post.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'createpost', component: EditProfileComponent },
-  { path: 'editpost', component: CommentComponent }
+  { path: 'editpost', component: CommentComponent },
+  { path: 'readingpost', component: ReadingPostComponent }
 ];
 
 @NgModule({
