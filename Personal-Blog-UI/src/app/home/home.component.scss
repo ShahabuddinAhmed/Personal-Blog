@@ -20,19 +20,7 @@ p {
   text-align: justify;
 }
 
-.show-more {
-  -webkit-transition: max-height 1s;
-  -moz-transition: max-height 1s;
-  -ms-transition: max-height 1s;
-  -o-transition: max-height 1s;
-  transition: max-height 1s;
-  background: #e5feff;
-  overflow: hidden;
-  max-height: 0;
-}
-.show-more.show {
-  max-height: 300px;
-}
+
 
 .footer-widget .social a {
   color: #3340bd;
@@ -45,4 +33,13 @@ p {
   position: absolute;
   left: 50%;
   right: 50%;
+}
+
+.rounded {
+  border-radius: 25px !important;
+}
+button {
+  text-transform: none;
+  font-size: 16px;
+  color: white !important;
 }
