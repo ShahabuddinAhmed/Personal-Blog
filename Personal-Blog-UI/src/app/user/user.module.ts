@@ -6,10 +6,13 @@ import { CommentComponent } from './comment/comment.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ReadingPostComponent } from './reading-post/reading-post.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   imports: [
     CommonModule,
+    MatInputModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
