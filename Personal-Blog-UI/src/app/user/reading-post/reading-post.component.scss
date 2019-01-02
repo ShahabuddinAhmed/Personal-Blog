@@ -16,6 +16,11 @@ img {
   width: 150px;
 }
 
+.replayImage {
+  height: 100px;
+  width: 100px;
+}
+
 p {
   text-align: justify;
 }
@@ -42,4 +47,22 @@ button {
   text-transform: none;
   font-size: 16px;
   color: white !important;
+}
+
+.clr {
+  background-color: green !important;
+  color: white !important;
+}
+.floating {
+  border-radius: 150%;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
 }
