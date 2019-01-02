@@ -10,8 +10,8 @@ import { ReadingPostComponent } from './reading-post/reading-post.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'createpost', component: EditProfileComponent },
-  { path: 'editpost', component: CommentComponent },
+  { path: 'edit/:id', component: EditProfileComponent },
+  { path: 'comment', component: CommentComponent },
   { path: 'readingpost', component: ReadingPostComponent }
 ];
 
