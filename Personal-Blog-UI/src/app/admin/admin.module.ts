@@ -10,6 +10,9 @@ import { AboutComponent } from './about/about.component';
   imports: [
     CommonModule
   ],
+  exports: [
+    CreatePostComponent
+  ],
   declarations: [
     LoginComponent,
     RegisterComponent,
