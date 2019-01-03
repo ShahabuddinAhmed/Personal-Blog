@@ -1,0 +1,45 @@
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+h4 {
+  text-align: center;
+}
+
+img {
+  height: 150px;
+  width: 150px;
+}
+
+p {
+  text-align: justify;
+}
+
+
+
+.footer-widget .social a {
+  color: #3340bd;
+  margin-left: 25px;
+  margin-right: 20px;
+  background-color: white;
+}
+
+.Center {
+  position: absolute;
+  left: 50%;
+  right: 50%;
+}
+
+.rounded {
+  border-radius: 25px !important;
+}
+button {
+  text-transform: none;
+  font-size: 16px;
+  color: white !important;
+}
