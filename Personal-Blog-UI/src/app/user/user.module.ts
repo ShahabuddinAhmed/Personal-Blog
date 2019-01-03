@@ -6,8 +6,8 @@ import { CommentComponent } from './comment/comment.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { ReadingPostComponent } from './reading-post/reading-post.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import {MatInputModule} from '@angular/material/input';
-
+import { MatInputModule } from '@angular/material/input';
+import { AboutWriterComponent } from './about-writer/about-writer.component';
 
 @NgModule({
   imports: [
@@ -21,7 +21,11 @@ import {MatInputModule} from '@angular/material/input';
     RegisterComponent,
     CommentComponent,
     EditProfileComponent,
-    ReadingPostComponent
+    ReadingPostComponent,
+    AboutWriterComponent
+  ],
+  exports: [
+    AboutWriterComponent
   ]
 })
 export class UserModule { }
