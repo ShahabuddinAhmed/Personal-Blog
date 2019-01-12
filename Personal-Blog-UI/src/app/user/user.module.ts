@@ -8,11 +8,30 @@ import { ReadingPostComponent } from './reading-post/reading-post.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { MatInputModule } from '@angular/material/input';
 import { AboutWriterComponent } from './about-writer/about-writer.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatRippleModule, MatMenuModule, MatIconModule } from '@angular/material';
+import { MatToolbarModule, MatSidenavModule, MatTooltipModule, MatListModule, MatTabsModule } from '@angular/material';
+import { MatCardModule } from '@angular/material/card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatCheckboxModule,
     MatInputModule,
+    MatFormFieldModule,
+    MatRippleModule,
+    MatMenuModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatTooltipModule,
+    MatListModule,
+    MatTabsModule,
+    BrowserAnimationsModule,
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
