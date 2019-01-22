@@ -1,0 +1,79 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-md-6 offset-md-3" style="padding: 0px;">
+      <h4>All Catagory List</h4>
+      <mdb-card class="testimonial-card">
+        <!--Bacground color-->
+        <div class="card-up aqua-gradient">
+            <br>
+            <h4>Recent Post</h4>
+            <br>
+        </div>
+
+        <!--Avatar-->
+
+        <mdb-card-body>
+          <!--Name-->
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Recipe
+              <span class="pull-right">
+                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Fashion Style
+              <span class="pull-right">
+                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Programming
+              <span class="pull-right">
+                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
+              </span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Web Developing
+              <span class="pull-right">
+                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
+              </span>
+            </li>
+          </ul>
+        </mdb-card-body>
+      </mdb-card>
+      <br>
+      <br>
+    </div>
+    <div class="col-md-6 offset-md-3" style="padding: 0px;">
+      <mdb-card class="signin-card">
+        <!--Bacground color-->
+
+        <mdb-card-body class="card-basic-content">
+          <!--Name-->
+          <mdb-card-title>
+            <h4>Add a New Catagory</h4>
+          </mdb-card-title>
+          <hr>
+
+          <form class="example-form" novalidate>
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Catagory Name">
+              <mat-hint>Enter New Catagory Name!</mat-hint>
+
+            </mat-form-field>
+
+            <br>
+            <br>
+            <button type="submit" mat-raised-button color="primary" class="form-button">Add Catagory</button>
+          </form>
+        </mdb-card-body>
+
+      </mdb-card>
+    </div>
+  </div>
+</div>
