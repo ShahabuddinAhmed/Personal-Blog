@@ -1,7 +1,8 @@
+import { UserService } from './../user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Register } from '../reading-post/register';
+import { Register } from '../models/register';
 
 @Component({
   selector: 'app-register',
@@ -49,7 +50,7 @@ export class RegisterComponent implements OnInit {
     ]);
   }
 
-  constructor() { }
+  constructor(private _userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.createFormControls();
@@ -62,6 +63,15 @@ export class RegisterComponent implements OnInit {
     this.register.userEmail = this.email.value;
     this.register.userPassword = this.password.value;
     this.register.userConfirmPassword = this.confirmPassword.value;
+    this._userService.addNewUser(this.register)
+    .subscribe(data => {
+      this.router.navigate(['/']);
+      console.log('successfully');
+    },
+    error => {
+      console.error(error);
+    }
+    );
   }
 
 }
