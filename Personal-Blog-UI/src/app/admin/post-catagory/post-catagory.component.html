@@ -19,30 +19,13 @@
         <mdb-card-body>
           <!--Name-->
           <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Recipe
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let _catagoryList of catagoryList">
+              {{ _catagoryList.catagoryName }}
               <span class="pull-right">
-                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
+                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded" (click)="deleteCatagory(_catagoryList._id)">Delete</button>
               </span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Fashion Style
-              <span class="pull-right">
-                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
-              </span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Programming
-              <span class="pull-right">
-                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
-              </span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Web Developing
-              <span class="pull-right">
-                <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
-              </span>
-            </li>
+
           </ul>
         </mdb-card-body>
       </mdb-card>
@@ -60,16 +43,18 @@
           </mdb-card-title>
           <hr>
 
-          <form class="example-form" novalidate>
+          <form class="example-form" [formGroup]="postCatagoryForm" (ngSubmit)="onSubmit()" novalidate>
             <mat-form-field class="example-full-width">
-              <input type="text" matInput placeholder="Catagory Name">
+              <input type="text" matInput placeholder="Catagory Name" [formControl]="catagoryName">
               <mat-hint>Enter New Catagory Name!</mat-hint>
-
+              <mat-error *ngIf="catagoryName.hasError('required')">Catagory fileld is required</mat-error>
+                <mat-error *ngIf="catagoryName.hasError('maxlength')">Catagory atmost 60 charactes long.</mat-error>
+                <mat-error *ngIf="catagoryName.hasError('minlength')">Catagory needs minimum 3 charactes</mat-error>
             </mat-form-field>
 
             <br>
             <br>
-            <button type="submit" mat-raised-button color="primary" class="form-button">Add Catagory</button>
+            <button [disabled]='!postCatagoryForm.valid' type="submit" mat-raised-button color="primary" class="form-button">Add Catagory</button>
           </form>
         </mdb-card-body>
 
