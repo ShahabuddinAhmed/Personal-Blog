@@ -12,7 +12,7 @@
             <mdb-card-body>
               <!--Name-->
               <mdb-card-title>
-                <h4>Title of the Content</h4>
+                <h4>{{ readingPost.title }}</h4>
               </mdb-card-title>
               <hr>
               <!--Quotation-->
@@ -23,49 +23,19 @@
                 </div>
                 <div class="col-md-9">
                   <p>
-                    I am MEAN Stack Developer. I am studying in B.Sc Engineering
-                    in "Computer Science and Engineering" of University of Rajshahi,
-                     Bangladesh. I love coding.
-                     I have an indomitable patient in continuously for a long time
-                      coding. In previous, I have developed more than 5 projects in laravel.
-                       I am working in MEAN more than 1 year. I have also developed many projects
-                       by MEAN and even though working on many projects in parallel. I
-                        have also worked many professional projects.
+                    {{ readingPost.article | slice : 0 : 450 }}
                   </p>
                 </div>
                 <div class="col-md-12">
                   <p>
-                      I am MEAN Stack Developer. I am studying in B.Sc Engineering
-                      in "Computer Science and Engineering" of University of Rajshahi,
-                       Bangladesh. I love coding.
-                       I have an indomitable patient in continuously for a long time
-                        coding. In previous, I have developed more than 5 projects in laravel.
-                         I am working in MEAN more than 1 year. I have also developed many projects
-                         by MEAN and even though working on many projects in parallel. I
-                          have also worked many professional projects.
-                          I am MEAN Stack Developer. I am studying in B.Sc Engineering
-                      in "Computer Science and Engineering" of University of Rajshahi,
-                       Bangladesh. I love coding.
-                       I have an indomitable patient in continuously for a long time <br>
-                        coding. In previous, I have developed more than 5 projects in laravel.
-                         I am working in MEAN more than 1 year. I have also developed many projects
-                         by MEAN and even though working on many projects in parallel. I
-                          have also worked many professional projects.
-                          I am MEAN Stack Developer. I am studying in B.Sc Engineering
-                      in "Computer Science and Engineering" of University of Rajshahi,
-                       Bangladesh. I love coding.
-                       I have an indomitable patient in continuously for a long time
-                        coding. In previous, I have developed more than 5 projects in laravel.
-                         I am working in MEAN more than 1 year. I have also developed many projects
-                         by MEAN and even though working on many projects in parallel. I
-                          have also worked many professional projects.
+                    {{ readingPost.article | slice : 451 : readingPost.article.length }}
                   </p>
                 </div>
               </div>
             </mdb-card-body>
             <mdb-card-footer>
               <i class="fa fa-calendar" aria-hidden="true"></i>
-              30 Dec 2018
+              {{ readingPost.publishedDate }}
               <i style="padding: 10px;" class="fa fa-comment" aria-hidden="true">12</i>
               <a href=""> <i style="padding: 10px;" class="fa fa-facebook" aria-hidden="true">12</i></a>
               <a href=""><i style="padding: 10px;" class="fa fa-twitter" aria-hidden="true">6</i></a>
