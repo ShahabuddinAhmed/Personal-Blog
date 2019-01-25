@@ -7,68 +7,25 @@
   <h4>Admin Dashboard</h4>
   <hr>
   <div class="row">
-    <div class="col-md-6 offset-3">
-      <table mdbTable>
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Name </th>
-            <th scope="col">Email </th>
-            <th scope="col">Action </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr mdbTableCol>
-            <th scope="row">1</th>
-            <td>Shahabuddin Ahmed</td>
-            <td>shahabuddin.cse.ru@gmail.com</td>
-            <td>Update delete</td>
-          </tr>
-          <tr mdbTableCol>
-            <th scope="row">2</th>
-            <td>Shahabuddin Ahmed</td>
-            <td>shahabuddin.cse.ru@gmail.com</td>
-            <td>Update delete</td>
-          </tr>
-          <tr mdbTableCol>
-            <th scope="row">3</th>
-            <td>Shahabuddin Ahmed</td>
-            <td>shahabuddin.cse.ru@gmail.com</td>
-            <td>Update delete</td>
-          </tr>
-        </tbody>
-      </table>
     <br>
     <br>
-    </div>
     <div class="col-md-6 offset-3" custyle>
       <table class="table table-striped custab">
         <thead>
 
             <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Parent ID</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Parent ID</th>
                 <th class="text-center">Action</th>
             </tr>
         </thead>
-                <tr>
+                <tr *ngFor="let _adminList of adminList">
+
                     <td>1</td>
-                    <td>News</td>
-                    <td>News Cate</td>
-                    <td>Delete</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Products</td>
-                    <td>Main Products</td>
-                    <td>Delete</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Blogs</td>
-                    <td>Parent Blogs</td>
-                    <td>Delete</td>
+                    <td>{{ _adminList.adminName }}</td>
+                    <td>{{ _adminList.adminEmail }}</td>
+                    <td><a href="" (click)="deleteAdmin(_adminList._id)" >Delete</a></td>
                 </tr>
         </table>
     </div>
@@ -90,7 +47,7 @@
               <form class="example-form" [formGroup]="Register" (ngSubmit)="onSubmit()" novalidate>
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder="Name" [formControl]="name">
-                    <mat-hint>Enter user name!</mat-hint>
+                    <mat-hint>Enter admin name!</mat-hint>
                     <mat-error *ngIf="name.hasError('required')">Name fileld is required</mat-error>
                     <mat-error *ngIf="name.hasError('maxlength')">Name atmost 30 charactes long.</mat-error>
                     <mat-error *ngIf="name.hasError('minlength')">Name needs minimum 3 charactes</mat-error>
@@ -98,22 +55,27 @@
 
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder="Email" [formControl]="email">
-                    <mat-hint>Enter user email!</mat-hint>
-
+                    <mat-hint>Enter admin email!</mat-hint>
+                    <mat-error *ngIf="email.hasError('required')">Email fileld is required</mat-error>
+                    <mat-error *ngIf="email.hasError('maxlength')">Email atmost 60 charactes long.</mat-error>
+                    <mat-error *ngIf="email.hasError('email') && !email.hasError('maxlength')"> Email is not valid!</mat-error>
+                    <mat-error *ngIf="email.hasError('minlength') && !email.hasError('email')"> Email needs minimum 6 charactes</mat-error>
                   </mat-form-field>
 
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder="Password" [formControl]="password" [type]="hide ? 'password' : 'text'">
                     <mat-icon style="font-size: 18px" matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-                    <mat-hint>Enter user password!</mat-hint>
-
+                    <mat-hint>Enter admin password!</mat-hint>
+                    <mat-error *ngIf="password.hasError('required')"> password field is required</mat-error>
+                    <mat-error *ngIf="password.hasError('maxlength')">password atmost 100 charactes long</mat-error>
+                    <mat-error *ngIf="password.hasError('minlength')"> password needs minimum 6 charactes</mat-error>
                   </mat-form-field>
 
                   <mat-form-field class="example-full-width">
                     <input matInput placeholder="Confirm Password" [formControl]="confirmPassword" [type]="hide1 ? 'password' : 'text'">
                     <mat-icon style="font-size: 18px" matSuffix (click)="hide1 = !hide1">{{hide1 ? 'visibility' : 'visibility_off'}}</mat-icon>
                     <mat-hint>Confirm Password!</mat-hint>
-
+                    <mat-error *ngIf="password.hasError('required')">Confirm password field is required</mat-error>
                   </mat-form-field>
 
                   <button [disabled]='!Register.valid' type="submit" mat-raised-button color="primary" class="form-button">Create Admin</button>
