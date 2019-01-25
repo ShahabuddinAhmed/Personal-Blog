@@ -1,3 +1,64 @@
-<p>
-  create-post works!
-</p>
+<app-sidebar></app-sidebar>
+<div class="container">
+  <br>
+  <br>
+
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3" style="padding: 0px;">
+      <mdb-card class="signin-card">
+        <!--Bacground color-->
+
+        <mdb-card-body class="card-basic-content">
+          <!--Name-->
+          <mdb-card-title>
+            <h4>Create a New Post</h4>
+          </mdb-card-title>
+          <hr>
+
+          <form class="example-form" [formGroup]="createPostForm" (ngSubmit)="onSubmit()" novalidate >
+            <mat-form-field class="example-full-width">
+              <input type="text" matInput placeholder="Title" [formControl]="title">
+              <mat-hint>Enter title!</mat-hint>
+              <mat-error *ngIf="title.hasError('required')">Title fileld is required</mat-error>
+              <mat-error *ngIf="title.hasError('maxlength')">Title atmost 30 charactes long.</mat-error>
+              <mat-error *ngIf="title.hasError('minlength')">Title needs minimum 3 charactes</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-select matInput placeholder="Select Catagory" [formControl]="catagory">
+                <mat-option *ngFor="let _catagoryList of catagoryList" [value]="_catagoryList.catagoryName">
+                  {{ _catagoryList.catagoryName }}
+                </mat-option>
+              </mat-select>
+              <mat-hint>select a catagory!</mat-hint>
+              <mat-error *ngIf="catagory.hasError('required')">Catagory fileld is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-select matInput placeholder="Select Post Type" [formControl]="postType">
+                <mat-option value="Draft">Draft</mat-option>
+                <mat-option value="Personal">Personal</mat-option>
+                <mat-option value="Public">Public</mat-option>
+              </mat-select>
+              <mat-hint>Select Post Type!</mat-hint>
+              <mat-error *ngIf="postType.hasError('required')">PostType fileld is required</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Article" matAutosizeMinRows=10 [formControl]="article"></textarea>
+              <mat-hint>Enter Article!</mat-hint>
+              <mat-error *ngIf="article.hasError('required')">Article fileld is required</mat-error>
+              <mat-error *ngIf="article.hasError('maxlength')">Article atmost 10000 charactes long.</mat-error>
+              <mat-error *ngIf="article.hasError('minlength')">Article needs minimum 150 charactes</mat-error>
+            </mat-form-field>
+
+            <br>
+            <br>
+            <button type="submit" [disabled]='!createPostForm.valid' mat-raised-button color="primary" class="form-button">Create Post</button>
+          </form>
+        </mdb-card-body>
+
+      </mdb-card>
+    </div>
+  </div>
+</div>
