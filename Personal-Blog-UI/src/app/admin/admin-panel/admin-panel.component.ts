@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Register } from '../models/register';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -17,6 +18,7 @@ export class AdminPanelComponent implements OnInit {
   public password: FormControl;
   public confirmPassword: FormControl;
   register: Register;
+  public adminList: Register[];
 
   private createFormGroup(): void {
     this.Register = new  FormGroup( {
@@ -48,19 +50,50 @@ export class AdminPanelComponent implements OnInit {
       Validators.required
     ]);
   }
-  constructor() { }
+  constructor(private _adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
     this.createFormControls();
     this.createFormGroup();
+    this.getAdmin();
   }
 
   onSubmit() {
     this.register = new Register();
-    this.register.userName = this.name.value;
-    this.register.userEmail = this.email.value;
-    this.register.userPassword = this.password.value;
-    this.register.userConfirmPassword = this.confirmPassword.value;
+    this.register.adminName = this.name.value;
+    this.register.adminEmail = this.email.value;
+    this.register.adminPassword = this.password.value;
+    this.register.adminConfirmPassword = this.confirmPassword.value;
+    this._adminService.addNewAdmin(this.register)
+    .subscribe(data => {
+      this.router.navigate(['/admin']);
+      console.log('successfully');
+    },
+    error => {
+      console.error(error);
+    }
+    );
+  }
+
+  private getAdmin() {
+    this._adminService.getAllAdmin().subscribe(data => {
+      this.adminList = data;
+      console.log(this.adminList);
+    },
+    err => {
+      console.log(err);
+    }
+      );
+  }
+
+  deleteAdmin(ID: string) {
+    this._adminService._deleteAdmin(ID)
+    .subscribe(data => {
+      this.getAdmin();
+    },
+    err => {
+      console.log(err);
+    });
   }
 
 }
