@@ -12,6 +12,7 @@ export class DraftPostComponent implements OnInit {
 
   public postType: string;
   public draftPostList: Post[];
+  public post: Post;
 
   constructor(private _adminService: AdminService, private router: Router) { }
 
@@ -25,6 +26,32 @@ export class DraftPostComponent implements OnInit {
     .subscribe(data => {
       this.draftPostList = data;
       console.log(this.draftPostList);
+    },
+    err => {
+      console.log(err);
+    });
+  }
+
+  makePersonal(ID: string) {
+    this.post = new Post;
+    this.post.postType = 'Personal';
+    this._adminService._changePostType(ID, this.post)
+    .subscribe(data => {
+      console.log(data);
+      this.getPostType();
+    },
+    err => {
+      console.log(err);
+    });
+  }
+
+  makePublic(ID: string) {
+    this.post = new Post;
+    this.post.postType = 'Public';
+    this._adminService._changePostType(ID, this.post)
+    .subscribe(data => {
+      console.log(data);
+      this.getPostType();
     },
     err => {
       console.log(err);
