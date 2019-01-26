@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Post } from '../../admin/models/post';
 import { UserService } from '../user.service';
+import { Post } from '../models/post';
 
 @Component({
   selector: 'app-reading-post',
@@ -12,6 +12,7 @@ export class ReadingPostComponent implements OnInit {
 
   public PostID: string;
   public readingPost: Post;
+  public len: number;
 
   constructor(private _userService: UserService, private router: Router, private activeRoute: ActivatedRoute) { }
 
@@ -31,6 +32,7 @@ export class ReadingPostComponent implements OnInit {
     this._userService._getOnePost(ID)
     .subscribe(data => {
       this.readingPost = data;
+      this.len = this.readingPost.article.length;
     },
     err => {
       console.log(err);
