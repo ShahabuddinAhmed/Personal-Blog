@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Login } from './models/login';
 
+import { Catagory } from './models/catagory';
+import { Post } from './models/post';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,5 +41,17 @@ export class UserService {
 
   setToken(auth: any) {
     localStorage.setItem('token', auth.token);
+  }
+
+  _getOnePost(id: string): Observable<Post> {
+    return this.http.get<Post>(`http://localhost:3000/post/readingpost/${id}`);
+  }
+
+  getCatagoryName(): Observable<Catagory[]> {
+    return this.http.get<Catagory[]>('http://localhost:3000/catagory/all');
+  }
+
+  getAllPost(): Observable<Post[]> {
+    return this.http.get<Post[]>('http://localhost:3000/post/all');
   }
 }
