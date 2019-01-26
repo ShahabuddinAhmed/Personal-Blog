@@ -60,22 +60,10 @@
   <mdb-card-body>
   <!--Name-->
   <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Recipe
-      <span class="badge badge-primary badge-pill">14</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Fashion Style
-      <span class="badge badge-primary badge-pill">2</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Programming
-      <span class="badge badge-primary badge-pill">1</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Web Developing
-      <span class="badge badge-primary badge-pill">1</span>
-    </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let _catagoryName of catagoryName">
+          {{ _catagoryName.catagoryName }}
+          <span class="badge badge-primary badge-pill">14</span>
+        </li>
   </ul>
   </mdb-card-body>
   </mdb-card>
@@ -94,19 +82,10 @@
 
   <mdb-card-body>
   <!--Name-->
-  <ul class="list-group">
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Recipe
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Fashion Style
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Programming
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-      Web Developing
-    </li>
-  </ul>
+  <ul class="list-group" *ngIf="allPost">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let _allPost of allPost | slice:-5:allPost.length">
+        <a href="/readingpost/{{_allPost._id}}" routerLinkActive="router-link-active">{{ _allPost.title }}</a>
+      </li>
+    </ul>
   </mdb-card-body>
   </mdb-card>
