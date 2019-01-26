@@ -11,7 +11,7 @@
 
             <mdb-card-body>
               <!--Name-->
-              <mdb-card-title>
+              <mdb-card-title *ngIf="readingPost">
                 <h4>{{ readingPost.title }}</h4>
               </mdb-card-title>
               <hr>
@@ -21,19 +21,19 @@
                   <img src="assets/pictures/3.jpg" alt="thumbnail" class="img-thumbnail"
                   >
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9" *ngIf="readingPost">
                   <p>
                     {{ readingPost.article | slice : 0 : 450 }}
                   </p>
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-12" *ngIf="readingPost">
                   <p>
                     {{ readingPost.article | slice : 451 : readingPost.article.length }}
                   </p>
                 </div>
               </div>
             </mdb-card-body>
-            <mdb-card-footer>
+            <mdb-card-footer *ngIf="readingPost">
               <i class="fa fa-calendar" aria-hidden="true"></i>
               {{ readingPost.publishedDate }}
               <i style="padding: 10px;" class="fa fa-comment" aria-hidden="true">12</i>
