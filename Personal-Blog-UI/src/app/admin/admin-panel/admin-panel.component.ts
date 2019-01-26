@@ -19,6 +19,7 @@ export class AdminPanelComponent implements OnInit {
   public confirmPassword: FormControl;
   register: Register;
   public adminList: Register[];
+  public len: number;
 
   private createFormGroup(): void {
     this.Register = new  FormGroup( {
@@ -78,6 +79,7 @@ export class AdminPanelComponent implements OnInit {
   private getAdmin() {
     this._adminService.getAllAdmin().subscribe(data => {
       this.adminList = data;
+      this.len = this.adminList.length;
       console.log(this.adminList);
     },
     err => {
