@@ -36,8 +36,8 @@
         <mdb-card-footer>
           <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Update</button>
           <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
-          <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">draft</button>
-          <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Personal</button>
+          <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded" (click)="makePersonal(_draftPostList._id)">Personal</button>
+          <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded" (click)="makePublic(_draftPostList._id)">Published</button>
           <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">details</button>
         </mdb-card-footer>
       </mdb-card>
