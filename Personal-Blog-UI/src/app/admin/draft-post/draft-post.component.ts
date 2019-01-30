@@ -58,4 +58,15 @@ export class DraftPostComponent implements OnInit {
     });
   }
 
+  deleteDraft(ID: string) {
+    this._adminService._deletePost(ID)
+    .subscribe(data => {
+      console.log(data);
+      this.getPostType();
+    },
+    err => {
+      console.log(err);
+    });
+  }
+
 }
