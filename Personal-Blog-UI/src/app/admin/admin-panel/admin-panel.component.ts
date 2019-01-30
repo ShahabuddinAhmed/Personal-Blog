@@ -51,6 +51,7 @@ export class AdminPanelComponent implements OnInit {
       Validators.required
     ]);
   }
+  
   constructor(private _adminService: AdminService, private router: Router) { }
 
   ngOnInit() {
