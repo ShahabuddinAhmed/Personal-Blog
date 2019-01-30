@@ -20,23 +20,23 @@
             <!--Quotation-->
             <div class="row">
               <div class="col-md-3">
-                <img src="assets/pictures/3.jpg" alt="thumbnail" class="img-thumbnail"
+                <img src="http://localhost:3000/{{ _allPost.picture }}" alt="thumbnail" class="img-thumbnail"
                 style="width: 200px">
               </div>
               <div class="col-md-9">
                 <p>
-                  {{ _allPost.article }}
+                  {{ _allPost.article | slice : 0 : 450 }}...
                 </p>
               </div>
             </div>
           </mdb-card-body>
           <mdb-card-footer>
             <i class="fa fa-calendar" aria-hidden="true"></i>
-            30 Dec 2018
+            {{ _allPost.publishedDate }}
             <i style="padding: 10px;" class="fa fa-comment" aria-hidden="true">12</i>
             <span class="pull-right">
               <!-- <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Continue Reading...</button> -->
-              <a href="readingpost">Continue Reading...</a>
+              <a href="readingpost/{{_allPost._id}}">Continue Reading...</a>
             </span>
           </mdb-card-footer>
         </mdb-card>
@@ -111,13 +111,12 @@
           <ul class="list-group">
             <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let _catagoryName of catagoryName">
               {{ _catagoryName.catagoryName }}
-              <span class="badge badge-primary badge-pill">14</span>
+              <span class="badge badge-primary badge-pill"> {{ _catagoryName.catagoryName.length }} </span>
             </li>
           </ul>
         </mdb-card-body>
       </mdb-card>
 
-      <hr>
       <br>
       <mdb-card class="testimonial-card">
         <!--Bacground color-->
@@ -131,9 +130,9 @@
 
         <mdb-card-body>
           <!--Name-->
-          <ul class="list-group">
-            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let _catagoryName of catagoryName">
-              {{ _catagoryName.catagoryName }}
+          <ul class="list-group" *ngIf="allPost">
+            <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let _allPost of allPost | slice:-5:allPost.length">
+              <a routerLink="/readingpost/{{_allPost._id}}" routerLinkActive="router-link-active">{{ _allPost.title }}</a>
             </li>
           </ul>
         </mdb-card-body>
