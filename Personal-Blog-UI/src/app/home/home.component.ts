@@ -12,6 +12,7 @@ import { Catagory } from '../admin/models/catagory';
 export class HomeComponent implements OnInit {
 
   public allPost: Post[];
+  public count: any;
   public catagoryName: Catagory[];
 
   constructor(private activeRoute: ActivatedRoute, private _appService: AppService, private router: Router) { }
@@ -42,5 +43,6 @@ export class HomeComponent implements OnInit {
     }
       );
   }
+
 
 }
