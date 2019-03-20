@@ -22,20 +22,21 @@
           <!--Quotation-->
           <div class="row">
             <div class="col-md-3">
-              <img src="assets/pictures/3.jpg" alt="thumbnail" class="img-thumbnail"
+              <img src="http://localhost:3000/uploads/{{ _personalPostList.picture }}" alt="thumbnail" class="img-thumbnail"
               style="width: 200px">
-              <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Change</button>
+              <input  type="file" (change)="fileChangeEvent($event)" placeholder="Upload a file..."/>
+              <button mdbBtn type="button" (click)="upload(_personalPostList._id)" gradient="blue" mdbWavesEffect class="rounded">Change</button>
             </div>
             <div class="col-md-9">
               <p>
-                {{ _personalPostList.article | slice : 0 : 450 }}...
+                {{ _personalPostList.article | slice : 0 : 430 }}...
               </p>
             </div>
           </div>
         </mdb-card-body>
         <mdb-card-footer>
           <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Update</button>
-          <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">Delete</button>
+          <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded" (click)="deletePersonal(_personalPostList._id)">Delete</button>
           <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded" (click)="makeDraft(_personalPostList._id)">draft</button>
           <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded" (click)="makePublic(_personalPostList._id)">Published</button>
           <button mdbBtn type="button" gradient="blue" mdbWavesEffect class="rounded">details</button>
