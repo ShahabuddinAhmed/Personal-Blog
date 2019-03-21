@@ -12,6 +12,7 @@ export class PersonalPostComponent implements OnInit {
 
   public postType: string;
   public personalPostList: Post[];
+  public customFile: File = null;
   public post: Post;
 
   constructor(private _adminService: AdminService, private router: Router) { }
@@ -54,6 +55,34 @@ export class PersonalPostComponent implements OnInit {
       this.getPostType();
     },
     err => {
+      console.log(err);
+    });
+  }
+
+  deletePersonal(ID: string) {
+    this._adminService._deletePost(ID)
+    .subscribe(data => {
+      console.log(data);
+      this.getPostType();
+    },
+    err => {
+      console.log(err);
+    });
+  }
+
+  fileChangeEvent(fileInput: any) {
+    this.customFile = fileInput.target.files[0];
+    // this.product.photo = fileInput.target.files[0]['name'];
+    console.log(this.customFile);
+  }
+
+  upload(postID: string) {
+    // this.userID = '5c49cbb4a2cb7302e022d4cc';
+    this._adminService.updateProfileImage(this.customFile, postID).subscribe(data => {
+      // console.log(data["message"]);
+     console.log(data);
+     this.getPostType();
+    }, err => {
       console.log(err);
     });
   }
