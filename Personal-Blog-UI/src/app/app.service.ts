@@ -20,6 +20,10 @@ export class AppService {
     return this.http.get<Post[]>('http://localhost:3000/post/all');
   }
 
+  getCountPost(name: string): Observable<Post[]> {
+    return this.http.get<Post[]>(`http://localhost:3000/post/count/${name}`);
+  }
+
   getCatagoryName(): Observable<Catagory[]> {
     return this.http.get<Catagory[]>('http://localhost:3000/catagory/all');
   }
